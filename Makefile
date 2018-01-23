@@ -1,23 +1,23 @@
-#Makefile for BrewMain 5.0 for CS236 Fall 2000	
+# Makefile for Wine Prgram!
+# By: Ari Sherman
+# Class: CS5201 HW #1
+# Date: 1.23.18
 
 default: all
 
 all: driver
 
 driver:   BrewMain.o  \
-          wine.o      \
-    	  beer.o      \
-		  additives.o \
-		  grain.o     \
-		  hops.o      \
-		  yeast.o     \
-	g++ BrewMain.o wine.o beer.o additives.o grain.o hops.o yeast.o  -o driver
+    	  	beer.o      \
+		  		additives.o \
+	g++ BrewMain.o beer.o additives.o -o driver
 
 BrewMain.o: wine.h   \
             beer.h   \
-	g++ -c BrewMain.cpp  
+	g++ -c BrewMain.cpp
 
-wine.o: yeast.h      \
-        additives.h  \
-	g++ -c wine.hpp
+additives.o:  additives.h  \
+	g++ -c additives.cpp
 
+beer.o: beer.h \
+	g++ -c beer.cpp
